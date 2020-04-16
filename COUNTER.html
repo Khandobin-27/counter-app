@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Counter</title>
+    <style>
+        body {
+            position:absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            color: white;
+        }
+        .container {
+            width: 500px;
+            height: 500px;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h2 {
+            text-transform: uppercase;
+            color:white;
+        }
+        h1 {
+            font-size: 10em;
+            margin: 0;
+        }
+        .switch {
+            display: inline-block;
+        }
+        .counterButton {
+            padding: 5px 10px;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Counter</h2>
+        <h1 id="output">0</h1>
+        <div class="switch">
+            <button class="counterButton less">Lower</button>
+            <button class="counterButton more">Add</button>
+        </div>
+    </div>
+    <script>
+        let buttons = document.querySelectorAll(".counterButton");
+        let count = 0;
+
+        buttons.forEach(function(btn) {
+            btn.addEventListener("click", function() {
+                if (btn.classList.contains('more')) {
+                    count++;
+                } else if (btn.classList.contains('less')){
+                    count--;
+                }
+
+                let output = document.getElementById("output");
+                output.textContent = count;
+            })
+        })
+    </script>
+</body>
+</html>
